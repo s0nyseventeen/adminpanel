@@ -15,10 +15,6 @@ class Shop(models.Model):
     def __str__(self):
         return self.title
 
-    # def save(self, *args, **kwargs):
-    #     self.shop_id += 1
-    #     super().save(*args, **kwargs)
-
 
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
@@ -35,10 +31,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
-
-    # def save(self, *args, **kwargs):
-    #     self.product_id += 1
-    #     super().save(*args, **kwargs)
 
 
 class ProductImage(models.Model):
