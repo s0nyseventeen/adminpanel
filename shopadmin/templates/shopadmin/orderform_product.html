@@ -1,13 +1,20 @@
 {% extends 'shopadmin/main.html' %}
-
 {% load static %}
-
 {% block content %}
 
-	<form action="" method="POST">
-		{% csrf_token %}
-		{{ form  }}
-		<input type="submit" name="Submit">
-	</form>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card card-body">
+				<form action="" method="POST">
+					{% csrf_token %}
+					{% for i in form %}
+						{{ i }} <br><br>
+					{% endfor %}
+					<input type="submit" name="Submit">
+				</form>
+				
+			</div>
+		</div>
+	</div>
 
 {% endblock content %}

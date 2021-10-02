@@ -1,20 +1,33 @@
 from django.contrib import admin
-from .models import Shop, Product, Order
+from .models import Shop, Product, Order, ProductImage
+
+
+class ProductImageAdmin(admin.StackedInline):
+	model = ProductImage
 
 
 @admin.register(Shop)
 class ShopAdmin(admin.ModelAdmin):
-	list_display = ('shop_id', 'title', 'imagetoupload', 'date')
-	list_filter = ('title','date')
+	list_display = 'shop_id', 'title', 'imagetoupload', 'date'
+	list_filter = 'title', 'date'
 	search_fields = ['title']
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-	list_display = ('product_id', 'title', 'amount', 'price', 'active')
+	list_display = 'product_id', 'title', 'amount', 'price', 'active'
 	search_fields = ['product_id', 'title']
+	inlines = [ProductImageAdmin]
+
+	class Meta:
+		model = Product
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-	list_display = ('shop', 'product', 'date_created', 'status')
+	list_display = 'shop', 'product', 'date_created', 'status'
+
+
+@admin.register(ProductImage)
+class ProductImageAdmin(admin.ModelAdmin):
+	pass

@@ -33,6 +33,14 @@ class Product(models.Model):
 		super().save(*args, **kwargs)
 
 
+class ProductImage(models.Model):
+	product = models.ForeignKey(Product, on_delete=models.CASCADE)
+	images = models.URLField(max_length=200, null=True)
+
+	def __str__(self):
+		return self.product.title
+
+
 class Order(models.Model):
 	STATUS = (
 		('Pending', 'Pending'),
@@ -50,6 +58,3 @@ class Order(models.Model):
 		return self.product.title
 
 
-class Images(models.Model):
-	product = models.ForeignKey(Product, on_delete=models.CASCADE)
-	image = models.URLField(max_length=200, null=True)
