@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Shop, Product, Order, ProductImage
+from .models import Shop, Product, Order, ProductImage, Group
 
 
 class ProductImageAdmin(admin.StackedInline):
@@ -15,7 +15,13 @@ class ShopAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-	list_display = 'product_id', 'title', 'amount', 'price', 'active'
+	list_display = (
+		'product_id',
+		'title',
+		'amount',
+		'price',
+		'active',
+	)
 	search_fields = ['product_id', 'title']
 	inlines = [ProductImageAdmin]
 
@@ -30,4 +36,9 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
+	pass
+
+
+@admin.register(Group)
+class GroupAdmin(admin.ModelAdmin):
 	pass

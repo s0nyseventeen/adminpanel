@@ -29,14 +29,14 @@
 			</tr>
 			{% for shop in shops %}
 				<tr>
-					<td><a class="btn btn-sm btn-primary" href="{% url 'shop_detail' shop.id %}">View</a></td>
+					<td><a class="btn btn-sm btn-primary" href="{% url 'shop_detail' shop.shop_id %}">View</a></td>
 					<td>
 						{{ shop.title }}
 						<br>
 						<img class="shop_photo" src="{{ shop.imagetoupload.url }}">
 					</td>
 					<td>{{ shop.description }}</td>
-					<td><a class="btn btn-sm btn-info" href="{% url 'update_shop' shop.id %}">Update</a></td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'update_shop' shop.shop_id %}">Update</a></td>
 				</tr>
 			{% endfor %}
 		</table>

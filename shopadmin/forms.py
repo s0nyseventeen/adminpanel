@@ -5,12 +5,12 @@ from .models import Shop, Product
 class ShopForm(ModelForm):
 	class Meta:
 		model = Shop
-		fields = ['title', 'description', 'imagetoupload']
+		fields = ['title', 'description', 'imageUrl']
 
 
 class ProductForm(ModelForm):
 	class Meta:
 		model = Product
-		fields = ['description', 'title', 'amount', 'price', 'active']
+		fields = ['description', 'title', 'amount', 'price', 'active', 'image']
 
 
