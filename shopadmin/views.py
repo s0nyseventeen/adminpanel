@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import ShopForm, ProductForm
-from .filters import ShopFilter, ProductFilter
+from .filters import ShopFilter, ProductFilter, RangeFilter
 from django.db.models import Count
 
 
@@ -77,18 +77,3 @@ def update_product(request, pk):
 		'form': form
 	}
 	return render(request, 'shopadmin/orderform_product.html', context)
-
-# def get_orders(request):
-# 	products = Product.objects.all().annotate(number_of_products=Count('order'))
-# 	orders = Order.objects.all()
-# 	# orders_dict = {}
-# 	# for i in orders:
-# 	# 	if i.product.title in orders_dict:
-# 	# 		orders_dict[i.product.title] += 1
-# 	# 	else:
-# 	# 		orders_dict[i.product.title] = 1
-# 	context = {
-# 		'orders': orders,
-# 		'products': products
-# 	}
-# 	return render(request, 'shopadmin/products.html', context)

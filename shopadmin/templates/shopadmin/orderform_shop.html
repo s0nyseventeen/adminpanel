@@ -7,9 +7,8 @@
 			<div class="card card-body">
 				<form action="" method="POST">
 					{% csrf_token %}
-					{% for i in form %}
-						{{ i }} <br><br>
-					{% endfor %}
+					{{ form }}
+					<br><br>
 					<input type="submit" name="Submit">
 				</form>
 				

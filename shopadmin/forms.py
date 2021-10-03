@@ -11,6 +11,12 @@ class ShopForm(ModelForm):
 class ProductForm(ModelForm):
 	class Meta:
 		model = Product
-		fields = ['description', 'title', 'amount', 'price', 'active', 'image']
-
-
+		fields = [
+			'description',
+			'title',
+			'amount',
+			'price',
+			'active',
+			'image',
+			'category'
+		]
